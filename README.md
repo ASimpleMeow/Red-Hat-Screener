@@ -50,5 +50,9 @@ For the first number of day since recieving the screener, I spend the majority o
 
 
 I have implemented the POST and DELETE HTTP requests as of yet.
+
+
 __Bugs/Problems encountered:__ POST request for creating new users had empty resource.body
+
+
 __Solution:__ Use Body-Parser json in the post request to parse into a json format.
