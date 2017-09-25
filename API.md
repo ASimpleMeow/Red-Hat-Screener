@@ -296,7 +296,7 @@ Returns a list of Users
   });
   ```
   
-  **Update User**
+**Update User**
 ----
   Updates an existing user
 
