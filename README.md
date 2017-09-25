@@ -35,7 +35,7 @@ This has given me a huge boost in confidence. I believe that if I ever encouter 
 
 ## Running Tests
 
-I have not as of yet added my own test, so only tests present are those part of Red Hat's template.
+I have built upon Red Hat's template for the tests and added my own for POST, PUT and DELETE. As of 17:00 25-09-2017 all 5 tests pass successfully. I have additionally tested this in Postman to make certain that the API works.
 
     npm test
     
@@ -48,16 +48,21 @@ See [API.md](API.md) for details.
 
 For the first number of day since recieving the screener, I spend the majority of my time familiarising myself with RESTful API's and the new technologies, only after making my own simple sample API's with the help of online documentaions and tutorials I started working on this screener.
 
-
+---
 (24-09-2017)I have implemented the POST and DELETE HTTP requests as of yet.
-
 
 __Bugs/Problems encountered:__ POST request for creating new users had empty resource.body
 
 __Solution:__ Use Body-Parser json in the post request to parse into a json format.
 
-
+---
 (24-09-2017)I have implemented the PUT HTTP request to update user information
 
-
 __Bugs/Problems encountered:__ None.
+
+---
+(24-09-2017) I have implemented testing for POST, PUT and DELETE, and although I encountered some minor errors at first, it was quickly resolved. I used [this link](http://mherman.org/blog/2015/09/10/testing-node-js-with-mocha-and-chai/) for references and help while writing the tests.
+
+
+
+

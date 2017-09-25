@@ -287,8 +287,104 @@ Returns a list of Users
   ```javascript
   $.ajax({
     url: "/users",
+    data: data,
     dataType: "json",
     type : "POST",
+    success : function(r) {
+      console.log(r);
+    }
+  });
+  ```
+  
+  **Update User**
+----
+  Updates an existing user
+
+* **URL**
+
+  `/users/:id`
+
+* **Method:**
+
+  `PUT`
+
+*  **URL Params**
+
+   **Required:**
+
+    `id=[String]`
+
+* **Data Params**
+    
+  **Optional:**
+
+  `gender=[String]`
+  `name=[MixedType]` eg. `name={"title":"miss", "name":"cat2"}`
+  `location=[MixedType]` eg. `location={"street":"12 woods", "city":"waterford"}`
+  `email=[String]`
+  `username=[String]`
+  `password=[String]`
+  `salt=[String]`
+  `md5=[String]`
+  `sha1=[String]`
+  `sha256=[String]`
+  `registered=[Number]`
+  `dob=[Number]`
+  `cell=[String]`
+  `phone=[String]`
+  `picture=[MixedType]` eg. `picture={"large":"20.jpg", "medium":"20_s.jpg"}`
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:**
+
+    ```javascript
+    {
+    "__v": 0,
+    "gender": "male",
+    "name": {
+        "full": "NEW DATA!"
+    },
+    "location": {
+        "zip": 666,
+        "state": "s.atan",
+        "city": "hell",
+        "street": "21 rosy bath"
+    },
+    "email": "spooky@scary.skeleton",
+    "username": "boneMaster",
+    "password": "fleshStudent",
+    "salt": "11111",
+    "md5": "22222222",
+    "sha1": "33333333333",
+    "sha256": "4444444444444",
+    "registered": 123123123,
+    "dob": 123123432423,
+    "phone": "1-800-BAD-JOKE",
+    "cell": "081-647-4650",
+    "PPS": "3302243T",
+    "_id": "59c7bc4c0c006518c48e87bf"
+}
+    ```
+
+* **Error Response:**
+
+  * **Code:** 500 INTERNAL SERVER ERROR <br />
+    **Content:**
+
+    ```javascript
+    { "error": "Error updating user" }
+    ```
+
+* **Sample Call:**
+
+  ```javascript
+  $.ajax({
+    url: "/users/1",
+    data: data,
+    dataType: "json",
+    type : "PUT",
     success : function(r) {
       console.log(r);
     }

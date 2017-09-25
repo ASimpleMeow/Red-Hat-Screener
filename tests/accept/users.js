@@ -27,6 +27,7 @@ describe('Users', function() {
     });
   });
 
+  // Test for GET request - return list of users
   describe('/GET users', function() {
     it('should return a list of users', function(done) {
       chai.request(url)
@@ -40,6 +41,7 @@ describe('Users', function() {
     });
   });
 
+  // Test for GET request - return one user of specified ID
   describe('/GET users/:id', function() {
     it('should return a single user', function(done) {
       // Find a user in the DB
@@ -58,4 +60,71 @@ describe('Users', function() {
       });
     });
   });
+
+  // Test for POST request - return newly created user
+  describe('/POST users', function() {
+    it('should return a new single user', function(done) {
+
+      // Send post request with gender and name
+      chai.request(url)
+        .post('/users')
+        .send({'gender': 'male', 'name': 'test'})
+        .end(function(err, res){
+          res.should.have.status(200);
+          res.body.should.be.a('object');
+          res.body.should.have.property('gender');
+          res.body.should.have.property('name');
+          res.body.gender.should.equal('male');
+          res.body.name.should.equal('test');
+          done();
+        });
+    });
+  });
+
+  // Test for PUT request - return the updated user
+  describe('/PUT users/:id', function() {
+    it('should update a single user', function(done) {
+      
+      // Get all users, select and use the ID of first user
+      chai.request(url)
+        .get('/users')
+        .end(function(err, res){
+          var id = res.body[0]._id;
+          chai.request(url)
+            .put('/users/'+id)
+            .send({'name': 'testPut'})
+            .end(function(error, response){
+              response.should.have.status(200);
+              response.body.should.be.a('object');
+              response.body.should.have.property('name');
+              response.body.should.have.property('_id');
+              response.body.name.should.equal('testPut');
+              done();
+          });
+        });
+    });
+  });
+
+  // Test for DELETE request - return a success message
+  describe('/DELETE users/:id', function() {
+    it('should delete a single user', function(done) {
+
+      // Get all users, select and use the ID of first user
+      chai.request(url)
+        .get('/users')
+        .end(function(err, res){
+          var id = res.body[0]._id;
+          chai.request(url)
+            .delete('/users/'+id)
+            .end(function(error, response){
+              response.should.have.status(200);
+              response.body.should.be.a('object');
+              response.body.should.have.property('message');
+              response.body.message.should.equal('User successfully deleted');
+              done();
+          });
+        });
+    });
+  });
+
 });

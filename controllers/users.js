@@ -84,7 +84,7 @@ router.delete('/:id', function(req, res){
         error: "Error deleting user: " + err
       });
     }
-    res.json({message: 'User successfully deleted'});
+    res.json({message: "User successfully deleted"});
   });
 });
 
