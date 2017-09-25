@@ -42,15 +42,18 @@ router.get('/:id', function(req, res) {
 router.post('/', bodyParser, function(req, res){
  var new_user = new User(req.body);
   new_user.save(function(err, user) {
-    if (err)
-      res.send(err);
+    if (err) {
+      return res.status(500).json({
+        error: "Error creating a user: " + err
+      });
+    }
     res.json(user);
   });
 });
 
 //PUT /user/:id
 //Updates a user by ID
-router.put('/:id', function(req, res){
+router.put('/:id', bodyParser, function(req, res){
   User.findOneAndUpdate({
     _id: req.params.id
   },

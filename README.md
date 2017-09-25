@@ -49,10 +49,15 @@ See [API.md](API.md) for details.
 For the first number of day since recieving the screener, I spend the majority of my time familiarising myself with RESTful API's and the new technologies, only after making my own simple sample API's with the help of online documentaions and tutorials I started working on this screener.
 
 
-I have implemented the POST and DELETE HTTP requests as of yet.
+(24-09-2017)I have implemented the POST and DELETE HTTP requests as of yet.
 
 
 __Bugs/Problems encountered:__ POST request for creating new users had empty resource.body
 
-
 __Solution:__ Use Body-Parser json in the post request to parse into a json format.
+
+
+(24-09-2017)I have implemented the PUT HTTP request to update user information
+
+
+__Bugs/Problems encountered:__ None.
