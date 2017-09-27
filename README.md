@@ -56,13 +56,16 @@ __Bugs/Problems encountered:__ POST request for creating new users had empty res
 __Solution:__ Use Body-Parser json in the post request to parse into a json format.
 
 ---
-(24-09-2017)I have implemented the PUT HTTP request to update user information
+(25-09-2017)I have implemented the PUT HTTP request to update user information
 
 __Bugs/Problems encountered:__ None.
 
 ---
-(24-09-2017) I have implemented testing for POST, PUT and DELETE, and although I encountered some minor errors at first, it was quickly resolved. I used [this link](http://mherman.org/blog/2015/09/10/testing-node-js-with-mocha-and-chai/) for references and help while writing the tests.
+(25-09-2017) I have implemented testing for POST, PUT and DELETE, and although I encountered some minor errors at first, it was quickly resolved. I used [this link](http://mherman.org/blog/2015/09/10/testing-node-js-with-mocha-and-chai/) for references and help while writing the tests.
 
+---
+(27-09-2017) I have implemented the navigation in the website, as well as rendering of the API.md
 
+__Bugs/Problems encountered:__ Using the `<a>` (hyperlink) tag's href to navigate
 
-
+__Solution__: Render the page in app.js, direct where the ejs file is for it to render and use the localhost:8000 link for href.
