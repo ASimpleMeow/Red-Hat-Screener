@@ -18,7 +18,15 @@ app.use(morgan('dev'));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.get('/', function(req, res, err) { // eslint-disable-line no-unused-vars
+app.get('/', function(req, res, err) { // will render the index page
+  return res.render('index.ejs');
+});
+
+app.get('/createUser', function(req, res, err){  //will render the create users page
+  return res.render('create_user.ejs');
+});
+
+app.get('/api', function(req, res, err){  //will render the api page
   var md = function(filename) {
     var path = __dirname + "/" + filename;
     var include = fs.readFileSync(path, 'utf8');
@@ -27,14 +35,10 @@ app.get('/', function(req, res, err) { // eslint-disable-line no-unused-vars
     return html;
   };
 
-  return res.render('index.ejs', {
-    "md": md
+  return res.render('api.ejs', {
+    "md": md,
   });
 });
-
-// Setting to use json parsor
-//app.use(bodyParser.urlencoded({ extended: true }));
-//app.use(bodyParser.json());
 
 // See the User Controller for `/users` routes
 app.use('/users', userController);
