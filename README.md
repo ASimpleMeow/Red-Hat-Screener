@@ -69,3 +69,8 @@ __Bugs/Problems encountered:__ None.
 __Bugs/Problems encountered:__ Using the `<a>` (hyperlink) tag's href to navigate
 
 __Solution__: Render the page in app.js, direct where the ejs file is for it to render and use the localhost:8000 link for href.
+
+---
+(28-09-2017) I have completed the createUser page with the form.
+
+Sadly I have run out of time to continue working on this screener, as the deadline is 29-09-2017, during which time I will be in lectures. Howeveer I feel that this was a fun project to work on and it gave me an oppertunity to learn more about RESTful API's as well as new tools and technologies. 
